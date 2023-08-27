@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
-import NeonSign from './ChennelLetter';
-import MySlider from './Form';
+import reportWebVitals from './reportWebVitals';
+import { ProductState } from './context/ProductState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      {/* <App /> */}
-      {/* <NeonSign/> */}
-      <MySlider/>
+    <ProductState>
+      <App />
+    </ProductState>
   </React.StrictMode>
 );
 
+reportWebVitals();

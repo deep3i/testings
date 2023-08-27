@@ -1,3 +1,314 @@
-body{ 
-    background-color: black;
+.centered-container {
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align items to the top of the container */
+    height: 100vh;
+}
+/* Apply these styles to input fields of type text */
+.form-input-text {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 50%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-input-text:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.centered-content {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    /* gap: 0px; */
+}
+.hidden{
+    display: none;
+}
+.color {
+    width: 20px;
+    height: 20px;
+    /* To make them appear as squares */
+    border: 0px solid white;
+}
+/* Styles for the form */
+.form-container {
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+}
+
+/* Styles for the form elements */
+.form-element {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Style the dropdown arrow icon */
+.form-select::after {
+  content: '\f0d7';
+  font-family: 'Courier New', Courier, monospace; /* Add the Font Awesome library for the arrow icon */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Style the dropdown options */
+.form-select option {
+  font-size: 14px;
+  color: #333;
+}
+/* .checkbox-container {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* Styles for the checkbox label */
+/* .checkbox-label {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+} */
+
+ .flex-label {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Hide the default checkbox */
+/* .checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+} */
+
+/* Style the custom checkbox */
+/* .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+} */
+
+/* On hover, add a border to the custom checkbox */
+/* .checkbox-label:hover input ~ .checkmark {
+  border: 1px solid #999;
+} */
+
+/* When the checkbox is checked, change the background color of the custom checkbox */
+/* .checkbox-label input:checked ~ .checkmark {
+  background-color: #2196f3;
+} */
+
+/* When the checkbox is checked, add a white checkmark inside the custom checkbox */
+/* .checkbox-label input:checked ~ .checkmark::before {
+  content: '\f00c';
+  font-family: FontAwesome; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #fff;
+} */
+/* Adjust the size of the value images */
+.value-images {
+  display: grid;
+  grid-template-columns: repeat(4, 35px); /* 4 images per row */
+  gap: 25px; /* Add spacing between images */
+}
+
+.value-image {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Position the dropdown below the images */
+.dropdown-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; /* Add spacing between images and dropdown */
+  margin-bottom: 10px;
+}
+.scrollable-container {
+  max-height: 400px; /* Set a max height for the scrollable container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Add a border for visualization */
+
+  /* Custom scroll design */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f0f0f0;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.predefined-colors {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.predefined-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* Adjust the font size as needed */
+  color: white;
+}
+
+.predefined-color.selected {
+  border-color: #3498db;
+  transform: scale(1.1);
+}
+
+.value-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust this value as needed */
+}
+
+.value-image {
+  max-width: 100px;
+  max-height: 100px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Other styles for your form elements */
+.color-swatch {
+  display: flex;
+  flex-wrap: wrap;
+  width: 44px;
+  /* (color width + gap) * 2 */
+  /* gap: px; */
+}
+
+.row {
+  display: flex;
+  /* gap: 0px; */
+}
+.predefined-image img{
+   display: grid;
+   width: 44px;
+}
+.color {
+  width: 20px;
+  height: 20px;
+  /* To make them appear as squares */
+  border: 0px solid white;
+}
+.checkbox-container {
+  display: block;
+  margin-top: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.checkbox-box {
+  /* display: inline-block;
+  width: 20px;
+  height: 20px; */
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.selected {
+  border-color: #28a745;
+  box-shadow: 0 0 8px #28a745;
+}
+
+.form-checkbox-label {
+  font-size: 14px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }

@@ -1,32 +1,31 @@
-import React from "react";
-import Line from "./Angle";
-import ChannelLetterText from "./ChennelLetter";
-import MySlider from "./Form";
-import MyForm from "./Form";
-import ReduxExample from "./Form";
-import LedNeonLine from "./LedNeonLine";
-import LightBoxText from "./LightboxText";
-import MarqueeLetter from "./marquee";
-import Neoon from "./Panorema";
-import Panorema from "./Panorema";
-import Neonledletter from "./Test";
+import { useContext, useEffect } from "react";
+import axios from "axios";
+import { productContext } from "./context/ProductContext";
+import DynamicForm from "./components/productPage";
 
-function App(){ 
-    return( 
-        <> 
-          <div> 
-           {/* <Neonledletter/> */}
-           {/* <ChannelLetterText/> */}
-           {/* <LightBoxText/> */}
-           {/* <MarqueeLetter/> */}
-           {/* <MyForm/> */}
-           <MySlider/>
-           {/* <Panorema/>*/}
-           {/* <LedNeonLine/>*/}
-           {/* <Line/>*/}
-           {/* <ReduxExample/>*/}
-          </div>
-        </>
-    )
+function App() {
+
+  const productcontext = useContext(productContext);
+  const { setFormData } = productcontext
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const response = await axios.get("/demo.json");
+        if (response.data) {
+          setFormData(response.data[0].fielddetail)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProductData();
+  }, []);
+  return (
+      <div className="centered-container">
+        <DynamicForm/>
+      </div>
+  );
 }
+
 export default App;
