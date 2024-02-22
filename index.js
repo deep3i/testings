@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
     res.send("okk done livenoidejs ")
 });
 
-
 app.listen(port, () => {
     console.log(`run at http://localhost:${port}`);
 });
