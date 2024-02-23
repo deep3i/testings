@@ -5,8 +5,9 @@ const app = express();
 const port = 8080
 
 app.use(cors({
-  origin: '*'
+  origin: 'http://localhost:3000' // Replace with your frontend URL
 }));
+
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }));
 
