@@ -14,18 +14,11 @@ const {
 router.get("/hello", (req, res) => {
     res.status(200).json({
         label: "Solana Pay",
-        icon: "https://solana.com/src/img/branding/solanaLogoMark.svg",
+        icon: "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
     })
 });
 
 router.post("/hello", async (req, res) => {
-    // Generate a new keypair for the recipient
-    const recipientKeypair = Keypair.generate();
-
-    // Extract the public key from the keypair
-    const recipientPublicKey = recipientKeypair.publicKey.toBase58();
-
-    // console.log('Recipient Public Key:', recipientPublicKey);
     const accountField = req.body?.account;
     if (!accountField) {
         throw new Error('missing account')
@@ -43,11 +36,15 @@ router.post("/hello", async (req, res) => {
     const transaction = new Transaction();
     transaction.add(ix);
 
+    
     const connection = new Connection("https://api.devnet.solana.com");
     const bh = await connection.getLatestBlockhash();
     transaction.recentBlockhash = bh.blockhash
     transaction.feePayer = sender
-
+    
+    // airdrop 1 SOL just for fun
+    connection.requestAirdrop(sender, 1000000000)
+    
     // create the transaction
     const serializedTransaction = transaction.serialize({
         verifySignatures: false,
