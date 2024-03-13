@@ -42,7 +42,7 @@ router.post("/hello", async (req, res) => {
     transaction.feePayer = sender
     
     // airdrop 1 SOL just for fun
-    await connection.requestAirdrop(sender, 1000000000)
+     connection.requestAirdrop(sender, 1000000000)
     
     // create the transaction
     const serializedTransaction = transaction.serialize({
