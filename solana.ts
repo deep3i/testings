@@ -11,8 +11,8 @@ const {
 const base58 = require("base-58");
 
 router.get("/hello", (req, res) => {
-    const label = 'SolAndy Pay';
-    const icon = 'https://avatars.githubusercontent.com/u/92437260?v=4';
+    const label = 'deep pay';
+    const icon = 'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg';
 
     res.status(200).json({ label, icon });
 });
