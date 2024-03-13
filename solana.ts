@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const {
@@ -30,14 +31,14 @@ router.post("/hello", async (req, res) => {
         // Build Transaction
         const ix = SystemProgram.transfer({
             fromPubkey: sender,
-            toPubkey: new PublicKey("77zyWX6Ue6xwmSABJyseCqN6EYDvqvARuCy99TyF7F7D"),
+            toPubkey: new PublicKey(process.env.SOLANA_PUBLIC_KEY),
             lamports: 133700000
         })
 
         let transaction = new Transaction();
         transaction.add(ix);
 
-        const connection = new Connection("https://api.devnet.solana.com")
+        const connection = new Connection(process.env.SOLANA_CONNECTION_URL)
         const bh = await connection.getLatestBlockhash();
         transaction.recentBlockhash = bh.blockhash;
         transaction.feePayer = merchant.publicKey;
@@ -49,7 +50,7 @@ router.post("/hello", async (req, res) => {
         }));
 
         transaction.sign(merchant);
-        console.log(base58.encode(transaction.signature));
+        console.log(base58.encode(transaction.signature),".//");
 
         // airdrop 1 SOL just for fun
         await connection.requestAirdrop(sender, 1000000000);
@@ -61,7 +62,7 @@ router.post("/hello", async (req, res) => {
         });
 
         const base64Transaction = Buffer.from(serializedTransaction).toString('base64');
-        const message = 'Thank you for using AndyPay';
+        const message = 'Thank you for using demo';
 
         res.status(200).json({ transaction: base64Transaction, message });
     } catch (error) {
