@@ -12,6 +12,7 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use("/", require("./routes"));
+app.use("/api", require("./solana.js"));
 
 app.get("/", (req, res) => {
     res.send("okk done  ")
