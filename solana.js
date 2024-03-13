@@ -24,9 +24,6 @@ router.post("/hello", async (req, res) => {
         throw new Error('missing account')
     };
     const sender = new PublicKey(accountField);
-const merchant = Keypair.fromSecretKey(
-      new Uint8Array(JSON.parse("[226,230,33,166,183,94,221,240,76,0,177,119,22,166,134,93,69,185,83,121,221,13,229,219,18,55,91,84,86,112,53,87,139,130,97,105,159,216,5,167,211,57,175,154,105,195,156,4,68,100,253,224,35,32,204,44,126,175,226,176,146,254,206,226]")),
-    );
 
     // Build Transaction
     const ix = SystemProgram.transfer({
@@ -42,7 +39,6 @@ const merchant = Keypair.fromSecretKey(
     const bh = await connection.getLatestBlockhash();
     transaction.recentBlockhash = bh.blockhash
     transaction.feePayer = sender
-      transaction.sign(merchant);
     
     // airdrop 1 SOL just for fun
      connection.requestAirdrop(sender, 1000000000)
