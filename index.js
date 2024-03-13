@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use("/", require("./routes"));
 
 app.get("/", (req, res) => {
-    res.send("okk done livenoidejs ")
+    res.send("okk done  ")
 });
 
 app.listen(port, () => {
