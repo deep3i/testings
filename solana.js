@@ -8,7 +8,12 @@ const {
     Transaction
 } = require('@solana/web3.js');
 const base58 = require("base-58");
-
+router.get("/hello", (req, res) => {
+    res.status(200).json({
+        label: "Solana Pay",
+        icon: "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+    })
+});
 router.post("/hello", async (req, res) => {
     const accountField = req.body?.account;
     if (!accountField) {
