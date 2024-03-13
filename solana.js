@@ -35,7 +35,6 @@ router.post("/hello", async (req, res) => {
 
     const transaction = new Transaction();
     transaction.add(ix);
-
     
     const connection = new Connection("https://api.devnet.solana.com");
     const bh = await connection.getLatestBlockhash();
@@ -43,7 +42,7 @@ router.post("/hello", async (req, res) => {
     transaction.feePayer = sender
     
     // airdrop 1 SOL just for fun
-    connection.requestAirdrop(sender, 1000000000)
+    await connection.requestAirdrop(sender, 1000000000)
     
     // create the transaction
     const serializedTransaction = transaction.serialize({
