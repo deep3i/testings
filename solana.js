@@ -14,7 +14,7 @@ const {
 router.get("/hello", (req, res) => {
     res.status(200).json({
         label: "Solana Pay",
-        icon: "https://solana.com/src/img/branding/solanaLogoMark.svg",
+        icon: "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
     })
 });
 
